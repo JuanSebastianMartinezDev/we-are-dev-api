@@ -24,3 +24,14 @@ C:\Users\Usuario\Documents\proyects-net\WeAreDevApi\obj\Debug\net7.0\refint\WeAr
 C:\Users\Usuario\Documents\proyects-net\WeAreDevApi\obj\Debug\net7.0\WeAreDevApi.pdb
 C:\Users\Usuario\Documents\proyects-net\WeAreDevApi\obj\Debug\net7.0\WeAreDevApi.genruntimeconfig.cache
 C:\Users\Usuario\Documents\proyects-net\WeAreDevApi\obj\Debug\net7.0\ref\WeAreDevApi.dll
+C:\Users\Usuario\Documents\proyects-net\WeAreDevApi\bin\Debug\net7.0\Humanizer.dll
+C:\Users\Usuario\Documents\proyects-net\WeAreDevApi\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Usuario\Documents\proyects-net\WeAreDevApi\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Usuario\Documents\proyects-net\WeAreDevApi\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Usuario\Documents\proyects-net\WeAreDevApi\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Usuario\Documents\proyects-net\WeAreDevApi\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Usuario\Documents\proyects-net\WeAreDevApi\bin\Debug\net7.0\Mono.TextTemplating.dll
+C:\Users\Usuario\Documents\proyects-net\WeAreDevApi\bin\Debug\net7.0\MySqlConnector.dll
+C:\Users\Usuario\Documents\proyects-net\WeAreDevApi\bin\Debug\net7.0\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\Usuario\Documents\proyects-net\WeAreDevApi\bin\Debug\net7.0\System.CodeDom.dll
+C:\Users\Usuario\Documents\proyects-net\WeAreDevApi\obj\Debug\net7.0\WeAreDevApi.csproj.CopyComplete
