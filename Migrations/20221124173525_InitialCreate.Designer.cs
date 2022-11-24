@@ -11,8 +11,8 @@ using WeAreDevApi;
 namespace WeAreDevApi.Migrations
 {
     [DbContext(typeof(MySQLDBContext))]
-    [Migration("20221122214548_Initial")]
-    partial class Initial
+    [Migration("20221124173525_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -34,8 +34,8 @@ namespace WeAreDevApi.Migrations
                     b.Property<int>("CountryId")
                         .HasColumnType("int");
 
-                    b.Property<DateOnly?>("CreatedAt")
-                        .HasColumnType("date");
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Description")
                         .HasColumnType("longtext");
@@ -63,8 +63,8 @@ namespace WeAreDevApi.Migrations
                     b.Property<int>("TypeClientId")
                         .HasColumnType("int");
 
-                    b.Property<DateOnly?>("UpdatedAt")
-                        .HasColumnType("date");
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("UrlImage")
                         .HasColumnType("longtext");
@@ -87,8 +87,8 @@ namespace WeAreDevApi.Migrations
                     b.Property<int>("ClientId")
                         .HasColumnType("int");
 
-                    b.Property<DateOnly?>("CreatedAt")
-                        .HasColumnType("date");
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -97,8 +97,8 @@ namespace WeAreDevApi.Migrations
                     b.Property<int>("State")
                         .HasColumnType("int");
 
-                    b.Property<DateOnly?>("UpdatedAt")
-                        .HasColumnType("date");
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
 
@@ -116,8 +116,8 @@ namespace WeAreDevApi.Migrations
                     b.Property<int>("ClientId")
                         .HasColumnType("int");
 
-                    b.Property<DateOnly?>("CreatedAt")
-                        .HasColumnType("date");
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -126,8 +126,8 @@ namespace WeAreDevApi.Migrations
                     b.Property<int>("State")
                         .HasColumnType("int");
 
-                    b.Property<DateOnly?>("UpdatedAt")
-                        .HasColumnType("date");
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
 
@@ -146,8 +146,8 @@ namespace WeAreDevApi.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<DateOnly?>("CreatedAt")
-                        .HasColumnType("date");
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -156,8 +156,8 @@ namespace WeAreDevApi.Migrations
                     b.Property<int>("State")
                         .HasColumnType("int");
 
-                    b.Property<DateOnly?>("UpdatedAt")
-                        .HasColumnType("date");
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
 
@@ -170,8 +170,8 @@ namespace WeAreDevApi.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<DateOnly?>("CreatedAt")
-                        .HasColumnType("date");
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -180,8 +180,8 @@ namespace WeAreDevApi.Migrations
                     b.Property<int>("State")
                         .HasColumnType("int");
 
-                    b.Property<DateOnly?>("UpdatedAt")
-                        .HasColumnType("date");
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
 
@@ -194,8 +194,8 @@ namespace WeAreDevApi.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<DateOnly?>("CreatedAt")
-                        .HasColumnType("date");
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -204,8 +204,8 @@ namespace WeAreDevApi.Migrations
                     b.Property<int>("State")
                         .HasColumnType("int");
 
-                    b.Property<DateOnly?>("UpdatedAt")
-                        .HasColumnType("date");
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
 

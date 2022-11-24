@@ -14,8 +14,8 @@ namespace WeAreDevApi.Models
         [ForeignKey("ClientId")]
         public virtual Client Client { get; set; }
         public int State { get; set; } = 1;
-        public DateOnly? CreatedAt { get; set; }
-        public DateOnly? UpdatedAt { get; set; }
+        public DateTime? CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
 
     }
 }

@@ -11,7 +11,7 @@ namespace WeAreDevApi.Models
         public string Name { get; set; }
         public string Code { get; set; }
         public int State { get; set; } = 1;
-        public DateOnly? CreatedAt { get; set; }
-        public DateOnly? UpdatedAt { get; set; }
+        public DateTime? CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
     }
 }

@@ -22,40 +22,73 @@ namespace WeAreDevApi.Controllers
         [HttpGet]
         public IList<Client> AllClients()
         {
-            return (this._dbContext.Client.Include(x => x.TypeClient).ToList());
+            return (this._dbContext.Client.ToList());
         }
 
-        [HttpGet("/{id}")]
+        [HttpGet("{id}")]
         public ActionResult<Client> GetClientById(int Id)
         {
-            var client = _dbContext.Client.Find(Id);
+            var type = _dbContext.Client.Find(Id);
 
-            return Ok(client);
+            return Ok(type);
         }
 
         [HttpPost]
-        public ActionResult<Client> SaveClient(Client client)
+        public ActionResult SaveClient(Client type)
         {
-            _dbContext.Client.Add(client);
+
+            type.CreatedAt=DateTime.Now;
+            _dbContext.Client.Add(type);
             _dbContext.SaveChanges();
 
-            return Accepted();
+            return Accepted(true);
         }
 
-
-        [HttpDelete("{id}")]
-        public ActionResult<Client> DeleteClient(int id)
+        [HttpPut("{id}")]
+        public ActionResult UpdateClient(int id,Client typeClient)
         {
-            var client = _dbContext.Client.Find(id);
+            var type = _dbContext.Client.Find(id);
 
-            if (client == null)
+            if (type == null)
             {
                 return NotFound();
             }
-            client.State = 0;
-            _dbContext.Update(client);
+            type.State = typeClient.State;
+            type.Name = typeClient.Name;
+            type.UpdatedAt = DateTime.Now;
+            _dbContext.SaveChanges();
 
-            return Accepted();
+            return Accepted(true);
+        }
+
+        [HttpDelete("{id}")]
+        public ActionResult DeleteClient(int id)
+        {
+            var type = _dbContext.Client.Find(id);
+
+            if (type == null)
+            {
+                return NotFound();
+            }
+            type.State = 0;
+            _dbContext.SaveChanges();
+
+            return Accepted(true);
+        }
+
+        [HttpPost("restore/{id}")]
+        public ActionResult RestoreClient(int id)
+        {
+            var type = _dbContext.Client.Find(id);
+
+            if (type == null)
+            {
+                return NotFound(false);
+            }
+            type.State = 1;
+            _dbContext.SaveChanges();
+
+            return Accepted(true);
         }
 
 

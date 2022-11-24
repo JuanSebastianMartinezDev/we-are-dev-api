@@ -25,34 +25,52 @@ namespace WeAreDevApi.Controllers
             return (this._dbContext.TypeClient.ToList());
         }
 
-        [HttpGet("/{id}")]
+        [HttpGet("{id}")]
         public ActionResult<TypeClient> GetTypeClientById(int Id)
         {
-            var client = _dbContext.TypeClient.Find(Id);
+            var type = _dbContext.TypeClient.Find(Id);
 
-            return Ok(client);
+            return Ok(type);
         }
 
         [HttpPost]
-        public ActionResult SaveTypeClient(TypeClient client)
+        public ActionResult SaveTypeClient(TypeClient type)
         {
-            _dbContext.TypeClient.Add(client);
+
+            type.CreatedAt=DateTime.Now;
+            _dbContext.TypeClient.Add(type);
             _dbContext.SaveChanges();
 
             return Accepted(true);
         }
 
+        [HttpPut("{id}")]
+        public ActionResult UpdateTypeClient(int id,TypeClient typeClient)
+        {
+            var type = _dbContext.TypeClient.Find(id);
+
+            if (type == null)
+            {
+                return NotFound();
+            }
+            type.State = typeClient.State;
+            type.Name = typeClient.Name;
+            type.UpdatedAt = DateTime.Now;
+            _dbContext.SaveChanges();
+
+            return Accepted(true);
+        }
 
         [HttpDelete("{id}")]
         public ActionResult DeleteTypeClient(int id)
         {
-            var client = _dbContext.TypeClient.Find(id);
+            var type = _dbContext.TypeClient.Find(id);
 
-            if (client == null)
+            if (type == null)
             {
                 return NotFound();
             }
-            client.State = 0;
+            type.State = 0;
             _dbContext.SaveChanges();
 
             return Accepted(true);
@@ -61,13 +79,13 @@ namespace WeAreDevApi.Controllers
         [HttpPost("restore/{id}")]
         public ActionResult RestoreTypeClient(int id)
         {
-            var client = _dbContext.TypeClient.Find(id);
+            var type = _dbContext.TypeClient.Find(id);
 
-            if (client == null)
+            if (type == null)
             {
                 return NotFound(false);
             }
-            client.State = 1;
+            type.State = 1;
             _dbContext.SaveChanges();
 
             return Accepted(true);
