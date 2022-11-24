@@ -34,17 +34,17 @@ namespace WeAreDevApi.Controllers
         }
 
         [HttpPost]
-        public ActionResult<TypeClient> SaveTypeClient(TypeClient client)
+        public ActionResult SaveTypeClient(TypeClient client)
         {
             _dbContext.TypeClient.Add(client);
             _dbContext.SaveChanges();
 
-            return Accepted();
+            return Accepted(true);
         }
 
 
         [HttpDelete("{id}")]
-        public ActionResult<TypeClient> DeleteTypeClient(int id)
+        public ActionResult DeleteTypeClient(int id)
         {
             var client = _dbContext.TypeClient.Find(id);
 
@@ -53,11 +53,24 @@ namespace WeAreDevApi.Controllers
                 return NotFound();
             }
             client.State = 0;
-            _dbContext.Update(client);
+            _dbContext.SaveChanges();
 
-            return Accepted();
+            return Accepted(true);
         }
 
+        [HttpPost("restore/{id}")]
+        public ActionResult RestoreTypeClient(int id)
+        {
+            var client = _dbContext.TypeClient.Find(id);
 
+            if (client == null)
+            {
+                return NotFound(false);
+            }
+            client.State = 1;
+            _dbContext.SaveChanges();
+
+            return Accepted(true);
+        }
     }
 }

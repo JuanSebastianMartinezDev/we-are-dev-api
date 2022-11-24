@@ -11,16 +11,17 @@ builder.Services.AddDbContext<MySQLDBContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 });
 
+// Permission for angular local debug http cors
 var  MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: MyAllowSpecificOrigins,
-                      policy  =>
-                      {
-                          policy.WithOrigins("http://localhost:4200").AllowAnyHeader()
-                                                  .AllowAnyMethod();
-                      });
+		policy  => {
+		  policy.WithOrigins("http://localhost:4200")
+		  		.AllowAnyHeader()
+		        .AllowAnyMethod();
+		});
 });
 
 
