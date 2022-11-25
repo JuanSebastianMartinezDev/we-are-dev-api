@@ -8,7 +8,9 @@ namespace WeAreDevApi.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+
         public string Name { get; set; }
+
         public string Email { get; set; }
 
         public string? Description { get; set; }
@@ -25,16 +27,24 @@ namespace WeAreDevApi.Models
 
         public string? Direction { get; set; }
 
-        public int TypeClientId { get; set; }
-
         [ForeignKey("TypeClientId")]
+        public int TypeClientId { get; set; }
         public virtual TypeClient TypeClient { get; set; }
 
-        public int CountryId { get; set; }
-
         [ForeignKey("CountryId")]
+        public int CountryId { get; set; }
         public virtual Country Country { get; set; }
+
+        [ForeignKey("SectorId")]
+        public int SectorId { get; set; }
+        public virtual Sector Sector { get; set; }
+
         public DateTime? CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
+
+        public List<ClientAnnotation> Annotations { get; set; }
+        
+        public List<ClientTag> Tags { get; set; }
+
     }
 }

@@ -9,10 +9,11 @@ namespace WeAreDevApi.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Name { get; set; }
-        public int ClientId { get; set; }
 
         [ForeignKey("ClientId")]
+        public int ClientId { get; set; }
         public virtual Client Client { get; set; }
+        
         public int State { get; set; } = 1;
         public DateTime? CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }

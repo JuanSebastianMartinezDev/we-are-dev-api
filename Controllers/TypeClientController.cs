@@ -22,14 +22,17 @@ namespace WeAreDevApi.Controllers
         [HttpGet]
         public IList<TypeClient> AllTypeClients()
         {
-            return (this._dbContext.TypeClient.ToList());
+            return this._dbContext.TypeClient.ToList();
         }
 
         [HttpGet("{id}")]
         public ActionResult<TypeClient> GetTypeClientById(int Id)
         {
             var type = _dbContext.TypeClient.Find(Id);
-
+            if (type == null)
+            {
+                return NotFound();
+            }  
             return Ok(type);
         }
 

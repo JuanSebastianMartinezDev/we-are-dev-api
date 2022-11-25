@@ -22,14 +22,18 @@ namespace WeAreDevApi.Controllers
         [HttpGet]
         public IList<Country> AllCountrys()
         {
-            return (this._dbContext.Country.ToList());
+            
+            return this._dbContext.Country.ToList();
         }
 
         [HttpGet("{id}")]
         public ActionResult<Country> GetCountryById(int Id)
         {
             var country = _dbContext.Country.Find(Id);
-
+            if (country == null)
+            {
+                return NotFound();
+            }  
             return Ok(country);
         }
 

@@ -22,14 +22,17 @@ namespace WeAreDevApi.Controllers
         [HttpGet]
         public IList<Sector> AllSectors()
         {
-            return (this._dbContext.Sector.ToList());
+            return this._dbContext.Sector.ToList();
         }
 
         [HttpGet("{id}")]
         public ActionResult<Sector> GetSectorById(int Id)
         {
             var sector = _dbContext.Sector.Find(Id);
-
+            if (sector == null)
+            {
+                return NotFound();
+            }            
             return Ok(sector);
         }
 

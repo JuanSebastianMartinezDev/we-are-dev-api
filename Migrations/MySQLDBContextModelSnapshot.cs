@@ -54,6 +54,9 @@ namespace WeAreDevApi.Migrations
                     b.Property<int?>("Phone2")
                         .HasColumnType("int");
 
+                    b.Property<int>("SectorId")
+                        .HasColumnType("int");
+
                     b.Property<int>("State")
                         .HasColumnType("int");
 
@@ -69,6 +72,8 @@ namespace WeAreDevApi.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CountryId");
+
+                    b.HasIndex("SectorId");
 
                     b.HasIndex("TypeClientId");
 
@@ -217,6 +222,12 @@ namespace WeAreDevApi.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("WeAreDevApi.Models.Sector", "Sector")
+                        .WithMany()
+                        .HasForeignKey("SectorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("WeAreDevApi.Models.TypeClient", "TypeClient")
                         .WithMany()
                         .HasForeignKey("TypeClientId")
@@ -225,13 +236,15 @@ namespace WeAreDevApi.Migrations
 
                     b.Navigation("Country");
 
+                    b.Navigation("Sector");
+
                     b.Navigation("TypeClient");
                 });
 
             modelBuilder.Entity("WeAreDevApi.Models.ClientAnnotation", b =>
                 {
                     b.HasOne("WeAreDevApi.Models.Client", "Client")
-                        .WithMany()
+                        .WithMany("Annotations")
                         .HasForeignKey("ClientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -242,12 +255,19 @@ namespace WeAreDevApi.Migrations
             modelBuilder.Entity("WeAreDevApi.Models.ClientTag", b =>
                 {
                     b.HasOne("WeAreDevApi.Models.Client", "Client")
-                        .WithMany()
+                        .WithMany("Tags")
                         .HasForeignKey("ClientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Client");
+                });
+
+            modelBuilder.Entity("WeAreDevApi.Models.Client", b =>
+                {
+                    b.Navigation("Annotations");
+
+                    b.Navigation("Tags");
                 });
 #pragma warning restore 612, 618
         }
