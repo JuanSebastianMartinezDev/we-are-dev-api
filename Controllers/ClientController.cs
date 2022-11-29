@@ -23,7 +23,7 @@ namespace WeAreDevApi.Controllers
         public IList<Client> AllClients()
         {
              
-            return this._dbContext.Client.Include(b => b.Tags).ToList();
+            return this._dbContext.Client.ToList();
         }
 
         [HttpGet("{id}")]
@@ -71,6 +71,7 @@ namespace WeAreDevApi.Controllers
             client.Name = newClient.Name;
             client.Email = newClient.Email;
             client.Direction = newClient.Direction;
+            client.Description = newClient.Description;
             client.SectorId = newClient.SectorId;
             client.CountryId = newClient.CountryId;
             client.TypeClientId= newClient.TypeClientId;
@@ -78,6 +79,7 @@ namespace WeAreDevApi.Controllers
             client.Tags = newClient.Tags;
             client.Phone = newClient.Phone;
             client.Phone2= newClient.Phone2;
+            client.City= newClient.City;
             client.UpdatedAt = DateTime.Now;
             _dbContext.SaveChanges();
 
