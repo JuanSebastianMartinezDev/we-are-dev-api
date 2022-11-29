@@ -28,7 +28,7 @@ namespace WeAreDevApi.Migrations
                     b.Property<string>("City")
                         .HasColumnType("longtext");
 
-                    b.Property<int>("CountryId")
+                    b.Property<int?>("CountryId")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("CreatedAt")
@@ -54,13 +54,13 @@ namespace WeAreDevApi.Migrations
                     b.Property<int?>("Phone2")
                         .HasColumnType("int");
 
-                    b.Property<int>("SectorId")
+                    b.Property<int?>("SectorId")
                         .HasColumnType("int");
 
                     b.Property<int>("State")
                         .HasColumnType("int");
 
-                    b.Property<int>("TypeClientId")
+                    b.Property<int?>("TypeClientId")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("UpdatedAt")
@@ -218,21 +218,15 @@ namespace WeAreDevApi.Migrations
                 {
                     b.HasOne("WeAreDevApi.Models.Country", "Country")
                         .WithMany()
-                        .HasForeignKey("CountryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CountryId");
 
                     b.HasOne("WeAreDevApi.Models.Sector", "Sector")
                         .WithMany()
-                        .HasForeignKey("SectorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("SectorId");
 
                     b.HasOne("WeAreDevApi.Models.TypeClient", "TypeClient")
                         .WithMany()
-                        .HasForeignKey("TypeClientId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TypeClientId");
 
                     b.Navigation("Country");
 

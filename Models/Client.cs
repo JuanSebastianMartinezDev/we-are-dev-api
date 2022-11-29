@@ -27,24 +27,26 @@ namespace WeAreDevApi.Models
 
         public string? Direction { get; set; }
 
+        
         [ForeignKey("TypeClientId")]
-        public int TypeClientId { get; set; }
-        public virtual TypeClient TypeClient { get; set; }
+        public int? TypeClientId { get; set; }
+        public virtual TypeClient? TypeClient { get; set; }
 
+        
         [ForeignKey("CountryId")]
-        public int CountryId { get; set; }
-        public virtual Country Country { get; set; }
+        public int? CountryId { get; set; }
+        public virtual Country? Country { get; set; }
 
         [ForeignKey("SectorId")]
-        public int SectorId { get; set; }
-        public virtual Sector Sector { get; set; }
+        public int? SectorId { get; set; }
+        public virtual Sector? Sector { get; set; }
 
         public DateTime? CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
 
-        public List<ClientAnnotation> Annotations { get; set; }
+        public virtual ICollection<ClientAnnotation> Annotations { get; set; } = Array.Empty<ClientAnnotation>();
         
-        public List<ClientTag> Tags { get; set; }
+        public virtual ICollection<ClientTag> Tags { get; set; } = Array.Empty<ClientTag>();
 
     }
 }

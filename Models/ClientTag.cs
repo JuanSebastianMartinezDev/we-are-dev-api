@@ -10,7 +10,6 @@ namespace WeAreDevApi.Models
         public int Id { get; set; }
         public string Name { get; set; }
 
-        [ForeignKey("ClientId")]
         public int ClientId { get; set; }
         public virtual Client Client { get; set; }
         
