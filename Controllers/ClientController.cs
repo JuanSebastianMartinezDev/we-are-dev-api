@@ -51,7 +51,6 @@ namespace WeAreDevApi.Controllers
         [HttpPost]
         public ActionResult SaveClient(Client client)
         {
-
             client.CreatedAt=DateTime.Now;
             _dbContext.Client.Add(client);
             _dbContext.SaveChanges();
